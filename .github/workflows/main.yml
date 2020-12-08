@@ -4,11 +4,17 @@ jobs:
   Fuzzing:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+      id: checkout
+      with:
+        path: openssl
     - name: Build Fuzzers
       uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master
       with:
         oss-fuzz-project-name: 'openssl'
         dry-run: false
+        project-src-path: 'openssl'
     - name: Run Fuzzers
       uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@master
       with:
