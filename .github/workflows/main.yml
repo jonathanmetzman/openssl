@@ -14,6 +14,7 @@ jobs:
       with:
         oss-fuzz-project-name: 'openssl'
         dry-run: false
+        project-src-path: 'openssl'
     - name: Run Fuzzers
       uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@master
       with:
