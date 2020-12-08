@@ -4,6 +4,11 @@ jobs:
   Fuzzing:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+      id: checkout
+      with:
+        path: openssl
     - name: Build Fuzzers
       uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master
       with:
